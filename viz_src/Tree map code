@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['treemap']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+          ['Expenditure',    null,                 0,                               0],
+          ['Print',   'Expenditure',             103,                               0],
+          ['Travel',    'Expenditure',             133,                               0],
+          ['Events',      'Expenditure',             142,                               0],
+          ['Misc', 'Expenditure',             50,                               0],
+          ['Media',    'Expenditure',             19,                               0],
+
+          ]);
+        var data2 = google.visualization.arrayToDataTable([
+            ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+            ['Contributions',    null,                 0,                               0],
+            ['Academia',   'Contributions',             103,                               0],
+            ['Industry',    'Contributions',             133,                               0],
+            ['Government',      'Contributions',             99,                               0],
+            ['Misc', 'Contributions',             50,                               0],
+            ['Armed forces',    'Contributions',             19,                               0],
+
+            ]);
+
+        tree = new google.visualization.TreeMap(document.getElementById('chart_div'));
+        tree2 = new google.visualization.TreeMap(document.getElementById('chart_div2'));
+
+        tree.draw(data, {
+          minColor: '#f00',
+          midColor: '#ddd',
+          maxColor: '#0d0',
+          headerHeight: 15,
+          fontColor: 'black',
+          showScale: true
+        });
+
+        tree2.draw(data2, {
+          minColor: '#f00',
+          midColor: '#ddd',
+          maxColor: '#0d0',
+          headerHeight: 15,
+          fontColor: 'black',
+          showScale: true
+        });
+
+      }
+
+    </script>
+
+  </head>
+  <body>
+    <div id="chart_div" style="width: 300px; height: 300px;"></div>
+    <div id="chart_div2" style="width: 300px; height: 300px;"></div>
+  </body>
+</html>
